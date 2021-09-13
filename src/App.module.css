@@ -7,4 +7,16 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+    color: var(--text);
+}
+
+.infoCardContainer {
+  display:flex;
+  justify-content: space-between;
+  
+}
+
+.infoTitle {
+  margin: 0;
+  text-transform: uppercase;
 }

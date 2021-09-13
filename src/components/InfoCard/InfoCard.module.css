@@ -1,0 +1,14 @@
+.infoContainer {
+  text-transform: uppercase;
+  font-size: 13px;
+  background-color: var(--green);
+  border-radius: 20px;
+  padding: 10px;
+  margin: 0 20px;
+}
+
+
+
+.highlightMode {
+  background-color: var(--yellow);
+}

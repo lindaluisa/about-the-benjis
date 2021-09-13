@@ -1,0 +1,45 @@
+html, body {
+  position: fixed;
+  overflow-y: scroll;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.exchangeContainer {
+  padding: 10px;
+  margin:20px;
+  background: var(--pastell);
+  border-radius: 20px;
+}
+
+.exchangeTitle {
+  font-size: 0.85rem;
+  text-transform:  uppercase;
+}
+
+.exchangeList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.exchangeItem {
+  display:flex;
+  margin: 10px 0;
+  font-size: 0.85rem;
+}
+
+.exchangeName {
+  width:180px;
+}
+
+.exchangeIndex{
+  width: 80px;
+  opacity: 0.5;
+}
+
+.exchangePercentage{
+  width: 80px;
+  opacity: 0.5;
+}

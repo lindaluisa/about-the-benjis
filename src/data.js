@@ -29,6 +29,9 @@ const data = {
       ask: 129.0,
       sector: "Industry",
       dividends: {
+        2021: 23,
+        2020: 5,
+        2019: 18,
         2018: 18,
         2017: 15,
         2016: 15,
@@ -44,7 +47,7 @@ const data = {
       ask: 129.0,
       sector: "Industry",
       dividends: {
-        2021: 23,
+        2021: 17,
         2020: 5,
         2019: 18,
         2018: 18,
@@ -62,7 +65,7 @@ const data = {
       ask: 129.0,
       sector: "Industry",
       dividends: {
-        2021: 23,
+        2021: 21,
         2020: 5,
         2019: 18,
         2018: 18,
@@ -74,13 +77,13 @@ const data = {
       investorpage: "https://google.com"
     },
     {
-      name: "VARA",
-      ticker: "VARA",
+      name: "VARAA",
+      ticker: "VARAA",
       bid: 128.5,
       ask: 129.0,
       sector: "Industry",
       dividends: {
-        2021: 23,
+        2021: 0.2,
         2020: 5,
         2019: 18,
         2018: 18,
@@ -92,8 +95,8 @@ const data = {
       investorpage: "https://google.com"
     },
     {
-      name: "VARA",
-      ticker: "VARA",
+      name: "Leroy",
+      ticker: "LSG",
       bid: 128.5,
       ask: 129.0,
       sector: "Industry",
@@ -102,7 +105,7 @@ const data = {
         2020: 5,
         2019: 18,
         2018: 18,
-        2017: 15,
+        2017: 10,
         2016: 15,
         2015: 10,
       },

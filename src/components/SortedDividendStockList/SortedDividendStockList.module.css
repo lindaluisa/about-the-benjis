@@ -1,37 +1,35 @@
-.exchangeContainer {
+
+.stockContainer {
   padding: 10px;
   margin:20px;
-  background: var(--pastell);
+  background: var(--blue);
   border-radius: 20px;
 }
 
-.exchangeTitle {
+.stockTitle {
   font-size: 0.85rem;
   text-transform:  uppercase;
 }
 
-.exchangeList {
+.stockList {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-.exchangeItem {
+.stockItem {
   display:flex;
+  justify-content: space-between;
   margin: 10px 0;
   font-size: 0.85rem;
+  width: 150px;
 }
 
-.exchangeName {
+.stockName {
   width:180px;
 }
 
-.exchangeIndex{
-  width: 80px;
-  opacity: 0.5;
-}
-
-.exchangePercentage{
+.stockAmount{
   width: 80px;
   opacity: 0.5;
 }

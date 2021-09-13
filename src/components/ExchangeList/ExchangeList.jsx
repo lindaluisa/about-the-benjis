@@ -8,8 +8,7 @@ const ExchangeList = (props) => {
   const renderListItems = () => {
     return props.exchanges.map((exchange) => {
         return (
-          <li className={styles.exchangeItem}>
-            <div className={styles.exchangeDot}></div>
+          <li className={styles.exchangeItem} key={exchange.name}>
             <div className={styles.exchangeName}>{exchange.name}</div>
             <div className={styles.exchangeIndex}>{exchange.index}</div>
             <div className={styles.exchangePercentage}>{exchange.change}</div>

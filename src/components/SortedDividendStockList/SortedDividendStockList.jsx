@@ -8,8 +8,6 @@ const SortedDividendStockList = (props) => {
     return props.stocks.map((stock) => {
         return ( 
           <li className={styles.stockItem} key={stock.ticker}>
-            {/* <div className={styles.stockName}>{stock.name}</div>
-            <div className={styles.stockName}>{stock.name}</div> */}
             <div>{stock.name}</div>
             <div>{stock.amount} NOK</div>
           </li>

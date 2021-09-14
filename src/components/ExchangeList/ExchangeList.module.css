@@ -1,6 +1,6 @@
 .exchangeContainer {
   padding: 10px;
-  margin:20px;
+  margin: 5px;
   background: var(--pastell);
   border-radius: 20px;
 }
@@ -8,6 +8,7 @@
 .exchangeTitle {
   font-size: 0.85rem;
   text-transform:  uppercase;
+  padding: 9px 0;
 }
 
 .exchangeList {
@@ -17,21 +18,21 @@
 }
 
 .exchangeItem {
-  display:flex;
-  margin: 10px 0;
+  display: flex;
+  margin: 5px;
   font-size: 0.85rem;
 }
 
 .exchangeName {
-  width:180px;
+  width:100px;
 }
 
 .exchangeIndex{
-  width: 80px;
+  width: 50px;
   opacity: 0.5;
 }
 
 .exchangePercentage{
-  width: 80px;
+  width: 30px;
   opacity: 0.5;
 }

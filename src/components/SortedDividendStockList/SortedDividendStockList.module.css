@@ -1,7 +1,7 @@
 
 .stockContainer {
   padding: 10px;
-  margin:20px;
+  margin: 5px;
   background: var(--blue);
   border-radius: 20px;
 }
@@ -20,7 +20,7 @@
 .stockItem {
   display:flex;
   justify-content: space-between;
-  margin: 10px 0;
+  margin: 5px;
   font-size: 0.85rem;
   width: 150px;
 }

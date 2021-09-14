@@ -5,12 +5,12 @@ import classNames from "classnames";
 
 const InfoCard = ({ title, stock, highlightMode}) => {
 
-  const classes = classNames(styles.infoContainer, {
+  const highlighted = classNames(styles.infoContainer, {
     [styles.highlightMode]: highlightMode
   });
 
   return (
-    <div className={classes}>
+    <div className={highlighted}>
       <h4 className={styles.infoTitle}>{title}</h4>
         <div>
           <p className={styles.infoText}>{stock.ticker}</p>

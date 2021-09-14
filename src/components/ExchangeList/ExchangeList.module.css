@@ -6,7 +6,7 @@
 }
 
 .exchangeTitle {
-  font-size: 0.85rem;
+  font-size: var(--font-size);
   text-transform:  uppercase;
   padding: 9px 0;
 }
@@ -20,7 +20,7 @@
 .exchangeItem {
   display: flex;
   margin: 5px;
-  font-size: 0.85rem;
+  font-size: var(--font-size);
 }
 
 .exchangeName {

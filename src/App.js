@@ -11,6 +11,7 @@ import { getTopFiveDividendStocks,
          getInfoStockCardData,
           } from "./helpers";
 import data from './data.js';
+import StockList from "./components/StockList/StockList";
 
 
 function App() {
@@ -29,7 +30,6 @@ function App() {
         />
         </div>
 
-        {/* <div className={styles.infoCardContainer3}> */}
             <div className={styles.infoCardContainer2}>
               <InfoCard title="Highest dividend yield in current year" 
                 stock={getInfoStockCardData("yieldCurrent", data.stocks)}>
@@ -37,15 +37,19 @@ function App() {
               <InfoCard title="Highest dividend yield in the past 3 years" 
                 stock={getInfoStockCardData("growth", data.stocks)}>
               </InfoCard>
-            {/* </div> */}
 
-            <InfoCard title="Highest dividend yield all time" 
-              stock={getInfoStockCardData("yieldHistory", data.stocks)}
-              highlightMode>
-            </InfoCard>
+              <InfoCard title="Highest dividend yield all time" 
+                stock={getInfoStockCardData("yieldHistory", data.stocks)}
+                highlightMode>
+              </InfoCard>
           </div>
 
       </Subheader>
+      <div className={styles.dashboardContainer}>
+        <div className={styles.dashboard}>
+            <StockList stocks={data.stocks} />
+        </div>
+      </div>
       </div>
   ); 
 }

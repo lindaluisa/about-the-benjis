@@ -4,9 +4,8 @@
 
 .stockListContainer {
   background-color: #222222;
-  padding: 15px;
+  padding: 5px 15px 5px 40px;  
   border-radius: 20px;
-  padding: 10px;
   margin: 15px;
   color: #d5d5d5;
 }
@@ -24,7 +23,8 @@
 }
 
 .stockLisstItem {
-  margin: 12px 0PX;
+  margin: 10px 0PX;
+  align-items: center;
 }
 
 
@@ -35,40 +35,56 @@
   font-size: 11px;
 }
 
+
+.listIcon {
+  background-color: #f5f5f5;
+  color: black;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  left: 25px;
+}
+
 .listItemName,
 .nameHeader {
-  width: 60px;
+  width: 80px;
+  position: relative;
 }
 
 .listItemTicker,
 .tickerHeader {
-  width: 60px;
+  width: 80px;
 }
 
 .listItemAsk,
 .askHeader {
-  width: 35px;
+  width: 45px;
 }
 
 .listItemBid,
 .bidHeader {
-  width: 35px;
+  width: 45px;
 }
 
 .listItemDps,
 .dpsHeader {
   width: 85px;
   text-align: center;
+  /* display: none; */
 }
 
 .listItemDpsSpent,
 .dpsspentHeader {
   width: 100px;
-  text-align: center;
+  /* display: none; */
 }
-
 
 .listItemPe,
 .peHeader {
-  width: 50px;
+  width: 20px;
 }

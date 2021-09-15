@@ -38,7 +38,8 @@ const data = {
         2015: 1,
       },
       homepage: "https://google.com",
-      investorpage: "https://google.com"
+      investorpage: "https://google.com",
+      pe: 15
     },
     {
       name: "AKER",
@@ -56,7 +57,8 @@ const data = {
         2015: 10,
       },
       homepage: "https://google.com",
-      investorpage: "https://google.com"
+      investorpage: "https://google.com",
+      pe: 15
     },
     {
       name: "VARA",
@@ -74,7 +76,8 @@ const data = {
         2015: 24,
       },
       homepage: "https://google.com",
-      investorpage: "https://google.com"
+      investorpage: "https://google.com",
+      pe: 15
     },
     {
       name: "VARAA",
@@ -92,7 +95,8 @@ const data = {
         2015: 10,
       },
       homepage: "https://google.com",
-      investorpage: "https://google.com"
+      investorpage: "https://google.com",
+      pe: 15
     },
     {
       name: "Leroy",
@@ -110,7 +114,8 @@ const data = {
         2015: 10,
       },
       homepage: "https://google.com",
-      investorpage: "https://google.com"
+      investorpage: "https://google.com",
+      pe: 15
     }
   ]
 }

@@ -3,6 +3,7 @@
   margin: 5px;
   background: var(--pastell);
   border-radius: 20px;
+  flex:1
 }
 
 .exchangeTitle {

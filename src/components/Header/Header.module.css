@@ -7,7 +7,6 @@ a { text-decoration: none; }
 }
 
 .header {
-  /* width: 100%; */
   padding: 10px;
   background: var(--background);
 }
@@ -59,7 +58,7 @@ a { text-decoration: none; }
   height: 50px;
   border-radius: 500px;
   position: absolute;
-  right: -50px;
+  right: -85px;
   z-index: 1000;
 }
 

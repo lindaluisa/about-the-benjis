@@ -21,7 +21,6 @@ export const StockList = ({stocks}) => {
           <div className={styles.listItemPe}>
             {getStockPe(stock)}
           </div>
-          <div className={styles.listItemSector}>{stock.sector}</div>
         </li>
       );
     });
@@ -50,12 +49,12 @@ export const StockList = ({stocks}) => {
         <div className={styles.nameHeader}>Name</div>
         <div className={styles.tickerHeader}>Ticker</div>
         <div className={styles.askHeader}>Ask</div>
+        <div className={styles.bidHeader}>Bid</div>
         <div className={styles.dpsHeader}>Dividend per share</div>
         <div className={styles.dpsspentHeader}>Dividend per 1000 spent</div>
         <div className={styles.peHeader}>P/E</div>
-        <div className={styles.sectorHeader}>Sector</div>
       </div>
-        <ul className={styles.StockList}>
+        <ul className={styles.stockList}>
           {renderListItems()}
         </ul>
     </div>

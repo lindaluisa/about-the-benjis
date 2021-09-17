@@ -45,7 +45,7 @@ export const StockList = ({ stocks, setStocks }) => {
     };
   };
 
-  //TODO: Fix Select Toggle
+
   const setStocksByDividendYieldOverall = () => {
     const sorted = sortStocksByOverallDY(stocks);
     setStocks(sorted);

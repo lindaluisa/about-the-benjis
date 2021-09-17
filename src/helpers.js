@@ -1,10 +1,3 @@
-export const getCurrentYear = () => {
-  const date = new Date();
-  const year = date.getFullYear();
-
-  return year;
-}
-
 // SORTING
 export const sortStocksByDY = (stocks) => {
   const stockCopy = [...stocks]; 
@@ -17,43 +10,39 @@ export const sortStocksByDY = (stocks) => {
   return sorted;
 };
 
+export const getCurrentYear = () => {
+  const date = new Date();
+  const year = date.getFullYear();
 
-export const sortStocksByOverallDY = (stocks) => {
-  const stockCopy = [...stocks];
-
-  const sortedByOverallYield = stockCopy.sort((stockA, stockB) => {
-    const stockATotalDividends = calcTotalDividends(stockA);
-    const stockBTotalDividends = calcTotalDividends(stockB);
-
-    if ( stockBTotalDividends > stockATotalDividends ) {
-      return 1;
-    } else if ( stockBTotalDividends > stockATotalDividends ) {
-      return -1;
-    }
-      return 0;
-    });
-  
-  return sortedByOverallYield;
+  return year;
 }
 
-export const sortStocksByYieldGrowth = (stocks) => {
-  // return sortStocks(stocks, calcGrowth);
+const sortStocks = (stocks, sortingValueFunc) => {
   const stocksCopy = [...stocks];
 
-  const sortedByGrowth = stocksCopy.sort((stockA, stockB) => {
-    const stockASortingGrowth = calcGrowth(stockA);
-    const stockBSortingGrowth = calcGrowth(stockB);
+  const sortedByValue = stocksCopy.sort((stockA, stockB) => {
+    const stockASortingValue = sortingValueFunc(stockA);
+    const stockBSortingValue = sortingValueFunc(stockB);
 
-    if (stockBSortingGrowth > stockASortingGrowth) {
+    if (stockBSortingValue > stockASortingValue) {
       return 1;
-    } else if (stockBSortingGrowth < stockASortingGrowth) {
+    } else if (stockBSortingValue < stockASortingValue) {
       return -1;
     }
 
     return 0;
   });
 
-  return sortedByGrowth;
+  return sortedByValue;
+};
+
+
+export const sortStocksByOverallDY = (stocks) => {
+  return sortStocks(stocks, calcTotalDividends);
+}
+
+export const sortStocksByYieldGrowth = (stocks) => {
+  return sortStocks(stocks, calcGrowth);
 
 };
 

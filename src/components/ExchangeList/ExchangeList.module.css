@@ -9,7 +9,6 @@
 .exchangeTitle {
   font-size: var(--font-size);
   text-transform:  uppercase;
-  padding: 9px 0;
 }
 
 .exchangeList {

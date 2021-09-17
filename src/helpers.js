@@ -1,101 +1,81 @@
-// stocks: array of objects in the stocks array
-export const sortStocksByDividendYield = (stocks) => { 
-  const date = new Date();
-  const year = date.getFullYear();
-  console.log('stocks', stocks);
-  console.log(year);
-
-  const sorted = stocks.sort((stockA, stockB) => {
-    return stockB.dividends[year] - stockA.dividends[year];
-  });
-
-  console.log('sorted', sorted.slice(0,5) );
-  return sorted.slice(0,5); //only 5 stocks
-}
-
-
-export const getTopFiveDividendStocks = (stocks) => {
-  const sorted = sortStocksByDividendYield(stocks)
-  const year = getCurrentYear();
-
-  return sorted.slice(0,5).map (stock => {
-    return {
-      ticker: stock.ticker,
-      name: stock.name,
-      amount: stock.dividends[year]
-    }
-  })
-}
-
 export const getCurrentYear = () => {
   const date = new Date();
   const year = date.getFullYear();
 
-  return year
+  return year;
 }
 
-export const getInfoStockCardData = (descriptor, stocks) => {
-  if (descriptor === "growth") {
-    return calculateDividendGrowthStock(stocks)
-  } else if ( descriptor === "yieldCurrent") {
-    return calculateDividendCurrent(stocks)
-  } else if ( descriptor === "yieldHistory") {
-    return calculateDividendStockCompounded(stocks)
-  }
-}
-
-export const calculateDividendGrowthStock = (stocks) =>{
-  const sortedByGrowth = stocks
-  .map(stock => {
-    return calculateDividendGrowth(stock)
-  })
-  .sort((stockA, stockB) => {
-    return stockB.growth - stockA.growth
-  })
-  return {
-    ticker: sortedByGrowth[0].ticker,
-    amount: sortedByGrowth[0].growth
-  }
-}
-  
-  export const calculateDividendCurrent = (stocks) => {
-  
-  const sorted = sortStocksByDividendYield(stocks);
+// SORTING
+export const sortStocksByDY = (stocks) => {
+  const stockCopy = [...stocks]; 
   const year = getCurrentYear();
-  return  {
-    ticker: sorted[0].ticker,
-    amount: sorted[0].dividends[year]
-  };
-} 
 
-export const calculateDividendStockCompounded = (stocks) =>{
-  const sortedByCompoundedYield = stocks
-  .map(stock => {
-    return calculateTotalDividend(stock)
-  })
-  .sort((stockA, stockB) => {
-    return stockB.total - stockA.total
-  })
+  const sorted = stockCopy.sort((stockA, stockB) => {
+    return stockB.dividends[year] - stockA.dividends[year];
+  });
 
-  return {
-    ticker: sortedByCompoundedYield[0].ticker,
-    amount: sortedByCompoundedYield[0].total
-  }
-} 
+  return sorted;
+};
 
-export const calculateTotalDividend = (stock) => {
+
+export const sortStocksByOverallDY = (stocks) => {
+  const stockCopy = [...stocks];
+
+  const sortedByOverallYield = stockCopy.sort((stockA, stockB) => {
+    const stockATotalDividends = calcTotalDividends(stockA);
+    const stockBTotalDividends = calcTotalDividends(stockB);
+
+    if ( stockBTotalDividends > stockATotalDividends ) {
+      return 1;
+    } else if ( stockBTotalDividends > stockATotalDividends ) {
+      return -1;
+    }
+      return 0;
+    });
+  
+  return sortedByOverallYield;
+}
+
+export const sortStocksByYieldGrowth = (stocks) => {
+  // return sortStocks(stocks, calcGrowth);
+  const stocksCopy = [...stocks];
+
+  const sortedByGrowth = stocksCopy.sort((stockA, stockB) => {
+    const stockASortingGrowth = calcGrowth(stockA);
+    const stockBSortingGrowth = calcGrowth(stockB);
+
+    if (stockBSortingGrowth > stockASortingGrowth) {
+      return 1;
+    } else if (stockBSortingGrowth < stockASortingGrowth) {
+      return -1;
+    }
+
+    return 0;
+  });
+
+  return sortedByGrowth;
+
+};
+
+// Calculate
+export const calcTotalDividends = (stock) => {
   let total = 0;
   Object.keys(stock.dividends).forEach((key) => {
     total += stock.dividends[key]
-  })
-  stock.total = total
-  return stock;
+  });
+
+  return total;
 }
 
-export const calculateDividendGrowth = (stock) => {
+export const calcGrowth = (stock) => {
   const year = getCurrentYear();
   const comparisonYear = year - 3;
+
   const total = stock.dividends[year] - stock.dividends[comparisonYear];
-  stock.growth = total;
-  return stock;
-}
+
+  return total;
+};
+
+
+
+

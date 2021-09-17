@@ -1,5 +1,8 @@
 .header{
   text-transform: uppercase;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
 }
 
 .stockListContainer {
@@ -11,7 +14,7 @@
 }
 
 .listHeader,
-.stockLisstItem {
+.stockListItem {
   display: flex;
 }
 
@@ -22,7 +25,7 @@
   opacity: 0.5
 }
 
-.stockLisstItem {
+.stockListItem {
   margin: 10px 0PX;
   align-items: center;
 }

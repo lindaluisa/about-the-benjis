@@ -6,6 +6,7 @@ import styles from './Header.module.css';
 import avatar from './benji-avatar.jpg';
 
 const Header = () => {
+  const listKeys = [1,2]
   return (
     <header className={styles.header}>
       <div className={styles.containerHeader}>
@@ -16,7 +17,7 @@ const Header = () => {
               <h4>All about the benji's</h4>
             </div>
             <ul className={styles.iconList}>
-              <li className={styles.iconItem}>
+              <li className={styles.iconItem} key="iconChart">
                 <a href="/"> 
                   <div className={styles.icon}>
                   <FontAwesomeIcon icon={faChartBar} />
@@ -24,7 +25,7 @@ const Header = () => {
                 </a>
               </li>
 
-              <li className={styles.iconItem}>
+              <li className={styles.iconItem} key="iconCoins" >
                 <a href="/"> 
                   <div className={styles.icon}>
                   <FontAwesomeIcon icon={faCoins} />

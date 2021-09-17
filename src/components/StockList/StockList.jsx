@@ -1,54 +1,71 @@
-import React from "react";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faChartArea } from '@fortawesome/free-solid-svg-icons'
+import React, { useEffect } from "react";
 
+import Select from "../Select/Select.jsx";
+import StockListItem from "./StockListItem/StockListItem.jsx";
+import { 
+  sortStocksByDY,
+  sortStocksByOverallDY
+} from "../../helpers";
 
-import {getCurrentYear} from '../../helpers.js'
+// Styles
 import styles from './StockList.module.css';
 
-export const StockList = ({stocks}) => {
+export const StockList = ({ stocks, setStocks }) => {
+  // default when app boots up; array empty when booting; we need stocks when rendering
+  useEffect(() => {
+    setStocksByDividendYieldCurrentYear();
+  }, []);
 
   const renderListItems = () => {
-    return stocks.map(stock => {
-      return (
-        <li className={styles.stockLisstItem} key={stocks.ticker}>
-          <div className={styles.listIcon}>
-            <FontAwesomeIcon icon={faChartArea} />
-          </div>
-          <div className={styles.listItemName}>{stock.name}</div>
-          <div className={styles.listItemTicker}>{stock.ticker}</div>
-          <div className={styles.listItemAsk}>{stock.ask}</div>
-          <div className={styles.listItemBid}>{stock.bid}</div>
-          <div className={styles.listItemDps}>
-            {getDividendPerShare(stock)} NOK
-          </div>
-          <div className={styles.listItemDpsSpent}>
-            {getDividendPer1000Spent(stock)} NOK
-          </div>
-          <div className={styles.listItemPe}>{stock.pe} </div>
-        </li>
-      );
-    });
+    return stocks.map((stock) => (
+      <StockListItem stock={stock} key={stock.ticker} />
+    ));
   };
 
-  const getDividendPerShare = (stock) => {
-    const year = getCurrentYear();
-    return stock.dividends[year];
+  const getSelectOptions = () => {
+    return [
+      {
+        displayValue: "Highest dividend yield 2021",
+        value: "dividendYieldCurrentYear"
+      },
+      {
+        displayValue: "Highest dividend yield overall",
+        value: "dividendYieldOverall"
+      },
+    ];
   };
 
-  const getDividendPer1000Spent = (stock) => {
-    const dividendPerShare = getDividendPerShare(stock)
-    const amountOfStocks= 1000/ stock.ask;
+  const onSelectChange = (e) => {
+    const selectionValueDisplayed = e.target.value; 
 
-    const total = amountOfStocks * dividendPerShare;
-    return total.toFixed(2);
+    if (selectionValueDisplayed === "dividendYieldOverall") {
+      setStocksByDividendYieldOverall();
+    } else if (selectionValueDisplayed === "dividendYieldCurrentYear") {
+      setStocksByDividendYieldCurrentYear();
+    };
   };
+
+  //TODO: Fix Select Toggle
+  const setStocksByDividendYieldOverall = () => {
+    const sorted = sortStocksByOverallDY(stocks);
+    setStocks(sorted);
+  }
+  
+  const setStocksByDividendYieldCurrentYear = () => {
+    const sorted = sortStocksByDY(stocks);
+    setStocks(sorted); 
+  }
+
 
   return (
     <div className={styles.stockListContainer}>
 
       <div className={styles.header}>
-        <h5>Frankfurt Exchange</h5>
+          <h5>Frankfurt Exchange</h5>
+          <Select 
+            options={getSelectOptions()} 
+            onChange={onSelectChange}>
+          </Select>
       </div>
 
       <div className={styles.listHeader}>
@@ -56,15 +73,15 @@ export const StockList = ({stocks}) => {
         <div className={styles.tickerHeader}>Ticker</div>
         <div className={styles.askHeader}>Ask</div>
         <div className={styles.bidHeader}>Bid</div>
-        <div className={styles.dpsHeader}>Dividend p/s</div>
+        <div className={styles.dpsHeader}>Dividend per 1000 spent</div>
         <div className={styles.dpsspentHeader}>Dividend per 1000 spent</div>
         <div className={styles.peHeader}>P/E</div>
       </div>
+
       <div>
-        <ul className={styles.stockList}>
-          {renderListItems()}
-        </ul>
+        <ul className={styles.stockList}>{renderListItems()}</ul>
       </div>
+
     </div>
   );
 };

@@ -2,13 +2,13 @@ import React from "react";
 
 import styles from './SortedDividendStockList.module.css'
 
-const SortedDividendStockList = (props) => {
+export const SortedDividendStockList = (props) => {
 
   const renderListItems = () => {
     return props.stocks.map((stock) => {
         return ( 
           <li className={styles.stockItem} key={stock.ticker}>
-            <div>{stock.name}</div>
+            <div>{stock.ticker}</div>
             <div>{stock.amount} NOK</div>
           </li>
         );

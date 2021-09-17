@@ -1,6 +1,5 @@
 import React from "react";
-
-
+import { ConditionallyRender } from 'react-util-kit';  
 
 import Header from "../../components/Header/Header";
 import Subheader from "../../components/Subheader/Subheader";
@@ -9,48 +8,53 @@ import SortedDividendStockList from "../../components/SortedDividendStockList/So
 import InfoCard from "../../components/InfoCard/InfoCard";
 import StockList from "../../components/StockList/StockList";
 
-import styles from "./Dashboard.module.css";
-
 import { getTopFiveDividendStocks, 
          getInfoStockCardData,
-          } from "../../helpers";
+          } from "./dashboardHelpers";
 
-import data from '../../data.js';
 
-const Dashboard = () => {
+import styles from "./Dashboard.module.css";
+
+const Dashboard = ({ exchanges, stocks, setStocks }) => {
 
   return (
     <div>
-    <Header />
+      <Header />
 
-    <Subheader>
-      <div className={styles.infoCardContainer}>
-      <ExchangeList exchanges={data.exchanges}/>
-      <SortedDividendStockList 
-        stocks={getTopFiveDividendStocks(data.stocks)}
-      />
-      </div>
+      <Subheader>
+        <div className={styles.infoCardContainer}>
+        <ExchangeList exchanges={exchanges}/>
+        <SortedDividendStockList 
+          stocks={getTopFiveDividendStocks(stocks)}
+        />
+        </div>
 
           <div className={styles.infoCardContainer2}>
-            <InfoCard title="Highest dividend yield in current year" 
-              stock={getInfoStockCardData("yieldCurrent", data.stocks)}>
-            </InfoCard>
-            <InfoCard title="Highest dividend yield in the past 3 years" 
-              stock={getInfoStockCardData("growth", data.stocks)}>
-            </InfoCard>
+              <InfoCard title="Highest dividend yield in current year" 
+                stock={getInfoStockCardData("yieldCurrent", stocks)}>
+              </InfoCard>
+              <InfoCard title="Highest dividend yield in the past 3 years" 
+                stock={getInfoStockCardData("growth", stocks)}>
+              </InfoCard>
 
-            <InfoCard title="Highest dividend yield all time" 
-              stock={getInfoStockCardData("yieldHistory", data.stocks)}
-              highlightMode>
-            </InfoCard>
+              <InfoCard title="Highest dividend yield all time" 
+                stock={getInfoStockCardData("yieldOverall", stocks)}
+                highlightMode>
+              </InfoCard>
+          </div>
+      </Subheader>
+
+      <div className={styles.dashboardContainer}>
+        <div className={styles.dashboard}>
+
+          <ConditionallyRender // react-util-kit
+            ifTrue={stocks.length}
+            show={<StockList stocks={stocks} setStocks={setStocks}/> }
+          />
+
         </div>
-    </Subheader>
-
-    <div className={styles.dashboardContainer}>
-      <div className={styles.dashboard}>
-          <StockList stocks={data.stocks} />
       </div>
-    </div>
+
     </div>
   )
 }

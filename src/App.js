@@ -1,10 +1,11 @@
 import React, { useEffect, useState} from "react";
 import {
-  BrowserRouter as Router,
-  Route
+  BrowserRouter as Router, Route, Switch
 } from 'react-router-dom';
 
+import Header from "./components/Header/Header";
 import Dashboard from './pages/Dashboard/Dashboard';
+import HomeView from "./pages/HomeView/HomeView";
 
 import data from './data';
 
@@ -33,27 +34,39 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
-        <Route
-          exact
-          path="/"
-          render={(props) => (
-            <Dashboard 
-              exchanges={exchanges} 
-              stocks={stocks} 
-              setStocks={setStocks}
-              {...props}
-            />
-          )}
-        />
-        {/* <Route
-          path="/stock/:ticker"
-          render={(props) => (
+      <Header />
 
-          )}
-        /> */}
-       </Router>
-      </div>
+      <Router>
+
+            <Switch>
+
+              <Route
+                path="/"
+                render={() => 
+                  
+                <HomeView />
+                }
+                  exact
+              />
+
+              <Route
+                path="/stocks"
+                render={(props) => (
+                  <Dashboard 
+                    exchanges={exchanges} 
+                    stocks={stocks} 
+                    setStocks={setStocks}
+                    {...props}
+                    exact
+                  />
+                )}
+              />
+
+            </Switch>
+
+      </Router>
+    </div>
+
   ); 
 }
 

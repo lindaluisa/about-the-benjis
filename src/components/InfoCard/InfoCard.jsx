@@ -12,7 +12,7 @@ const InfoCard = ({ title, stock, highlightMode}) => {
   return (
     <div className={highlighted}>
       <h4 className={styles.infoTitle}>{title}</h4>
-        <div>
+        <div className={styles.infoWrapper}>
           <p className={styles.infoText}>{stock.ticker}</p>
           <p className={styles.infoText}>{stock.amount}</p>
         </div>

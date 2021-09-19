@@ -56,11 +56,11 @@ export const StockList = ({ stocks, setStocks }) => {
     setStocks(sorted); 
   }
 
-
   return (
-    <div className={styles.stockListContainer}>
+    <>
 
-      <div className={styles.header}>
+
+      <div className={styles.headerStocklist}>
           <h5>Frankfurt Exchange</h5>
           <Select 
             options={getSelectOptions()} 
@@ -78,11 +78,9 @@ export const StockList = ({ stocks, setStocks }) => {
         <div className={styles.peHeader}>P/E</div>
       </div>
 
-      <div>
+  
         <ul className={styles.stockList}>{renderListItems()}</ul>
-      </div>
-
-    </div>
+  </>
   );
 };
 

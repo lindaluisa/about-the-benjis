@@ -7,30 +7,29 @@ a { text-decoration: none; }
 }
 
 .header {
-  padding: 10px;
   background: var(--background);
 }
 
 .logoContainer {
-  display: flex;
-  align-items: center;
   text-transform: uppercase;
   font-weight: 800;
   letter-spacing: -1px;
-  width: 60%;
+  font-size: 20px; 
+  margin: 0px 15px;
 }
 
 .navContainer {
   display: flex;
   align-items: center;
+  justify-content: space-around;
 }
 
-.iconContainer {
+/* .iconContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0;
-}
+} */
 
 .iconList {
   display: flex;
@@ -50,7 +49,13 @@ a { text-decoration: none; }
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 8px;
+  padding: 14px;
+}
+
+.userWrapper {
+  display:flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .avatar {
@@ -58,7 +63,7 @@ a { text-decoration: none; }
   height: 50px;
   border-radius: 500px;
   position: absolute;
-  right: -150px;
+  right: 10px;
   z-index: 1000;
 }
 
@@ -68,4 +73,5 @@ a { text-decoration: none; }
   padding: 6px 70px 6px 13px;
   background: #f5f5f5;
   position: relative;
+  font-size: 20px;
 }

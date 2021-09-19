@@ -17,8 +17,7 @@ const Select = ({ onChange, options, className }) => {
   };
 
   return (
-    // <div className={classname(styles.selectContainer, className)}>
-    <div>
+
       <select 
         className={styles.select} 
         onChange={onChange}>
@@ -26,8 +25,6 @@ const Select = ({ onChange, options, className }) => {
           {renderOptions()}
 
       </select>
-
-    </div>
   );
 };
 

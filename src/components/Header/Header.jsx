@@ -33,13 +33,15 @@ const Header = () => {
                 </a>
               </li>
             </ul>
-            <img src={avatar} alt="User Avatar" className={styles.avatar}/>
-            <span className={styles.userName}>Linda</span>
+            <div className={styles.userWrapper}>
+              <span className={styles.userName}>Linda</span>
+              <img src={avatar} alt="User Avatar" className={styles.avatar}/>
+            </div>
         </div>
         
       </div>
       
-    </header>
+     </header>
   )
 };
 

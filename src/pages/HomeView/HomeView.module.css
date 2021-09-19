@@ -5,27 +5,13 @@
   margin: 5px 15px;
 }
 
-.infoCardContainer1 {
+.infoCardContainer2 {
   display:flex;
   justify-content: space-between;
   margin: 5px 15px;
-}
-
-.infoCardContainer2 {
-  padding: 0px 15px;
-}
-
-.infoCardContainer3  {
-  background-color: var(--yellow);
-  border-radius: 20px;
-  color: #222;
-  padding: 5px 15px 5px 40px;   
-  margin: 15px;
 }
 
 .infoTitle {
   margin: 0;
   text-transform: uppercase;
 }
-
-

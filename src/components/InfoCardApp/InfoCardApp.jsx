@@ -8,7 +8,9 @@ export const InfoCardApp = () => {
 
   return (
     <div className={styles.infoCardContainer}>
-        <h2 className={styles.infoTitle}>Easy to learn. Easy to use.</h2>
+      <h2 className={styles.infoTitle}>Easy to learn. Easy to use.</h2>
+
+      <div className={styles.textContainer}>
 
         <div className={styles.infoCard}>
             <div className={styles.infoContainer}>
@@ -20,16 +22,14 @@ export const InfoCardApp = () => {
               How are stocks traded? Every trade has two sides - a buyer and a seller. The price of a stock can change throughout the day.
             </div>
           </div>
+      </div>
 
 
+      <div className={styles.cta}>
+        Learn more
+      </div>
+      <img className={styles.stockImg} src={stockImg} alt="Stock Market" />
 
-
-          <div className={styles.cta}>
-            Learn more
-          </div>
-          <img className={styles.stockImg} src={stockImg} alt="Stock Market" />
-
-      
     </div>
   )
 }

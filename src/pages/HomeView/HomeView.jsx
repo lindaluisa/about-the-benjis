@@ -10,9 +10,8 @@ const HomeView = () => {
   return (
     <div>
       <Subheader>
-        <div className={styles.infoCardContainer}>
+       
            <InfoCardApp />
-        </div>
 
       </Subheader>
     </div>

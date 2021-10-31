@@ -12,7 +12,7 @@ With the words of Lil Kim:
 
 Starting server:
 - npm start
-- http://localhost:<port>/stocks 
+- http://localhost:port/stocks 
 
 Code base:
 - [x] initializing create-react-app

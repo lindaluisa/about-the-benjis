@@ -10,6 +10,10 @@ With the words of Lil Kim:
 > It's all about the Benjamins baby."
 
 
+Starting serve:
+npm start
+http://localhost:<port>/stocks 
+
 Code base:
 - [x] initializing create-react-app
 - [x] Using jsx
